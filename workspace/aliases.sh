@@ -60,6 +60,7 @@ alias egrep='egrep --color=auto'
 
 alias art="php artisan"
 alias artisan="php artisan"
+alias xartisan="php -dxdebug.start_with_request=yes artisan"
 alias cdump="composer dump-autoload -o"
 alias composer:dump="composer dump-autoload -o"
 alias db:reset="php artisan migrate:reset && php artisan migrate --seed"
