@@ -1,3 +1,5 @@
+.SILENT:
+
 up:
 	docker-compose up -d workspace nginx php-fpm mariadb redis
 
