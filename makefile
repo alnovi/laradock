@@ -21,4 +21,14 @@ build:
 build-workspace:
 	docker-compose build workspace
 
+prune-all:
+	docker system prune --force
+	docker system prune --volumes
+	docker container prune --force
+	docker image prune --force
+	docker image prune -a
+	docker volume prune --force
+	docker network prune --force
+	docker system df
+
 .DEFAULT_GOAL := up
