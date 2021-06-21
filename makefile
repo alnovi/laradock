@@ -1,7 +1,10 @@
 .SILENT:
 
-up:
+ibolit:
 	docker-compose up -d workspace nginx php-fpm mariadb redis
+
+api-server:
+	docker-compose up -d postgres
 
 ps:
 	docker-compose ps
@@ -15,7 +18,7 @@ exec:
 exec-root:
 	docker-compose exec workspace zsh
 
-build:
+build-ibolit:
 	docker-compose build workspace nginx php-fpm mariadb redis
 
 build-workspace:
@@ -31,4 +34,4 @@ prune-all:
 	docker network prune --force
 	docker system df
 
-.DEFAULT_GOAL := up
+.DEFAULT_GOAL := ibolit
