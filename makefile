@@ -1,7 +1,10 @@
 .SILENT:
 
-ibolit:
+ibolit-api:
 	docker-compose up -d workspace nginx php-fpm mariadb redis
+
+ibolit-chat-service:
+	docker-compose up -d mongo nats
 
 api-server:
 	docker-compose up -d postgres
@@ -19,7 +22,13 @@ exec-root:
 	docker-compose exec workspace zsh
 
 build-ibolit:
+	docker-compose build workspace nginx php-fpm mariadb redis mongo nats
+
+build-ibolit-api:
 	docker-compose build workspace nginx php-fpm mariadb redis
+
+build-ibolit-chat-service:
+	docker-compose build mongo nats
 
 build-workspace:
 	docker-compose build workspace
@@ -34,4 +43,4 @@ prune-all:
 	docker network prune --force
 	docker system df
 
-.DEFAULT_GOAL := ibolit
+.DEFAULT_GOAL := ibolit-api
