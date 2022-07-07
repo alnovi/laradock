@@ -1,13 +1,37 @@
 .SILENT:
 
+#################################################################
+# IBOLIT
+#################################################################
+
 ibolit-api:
 	docker-compose up -d workspace nginx php-fpm mariadb redis
 
-ibolit-chat-service:
-	docker-compose up -d mongo nats
+ibolit-build-api:
+	docker-compose build workspace nginx php-fpm mariadb redis
 
-api-server:
+ibolit-customizer:
+	docker-compose up -d workspace mongo mongo-webui redis
+
+ibolit-build-customizer:
+	docker-compose build workspace mongo mongo-webui redis
+
+#################################################################
+# ALNOVI
+#################################################################
+
+
+
+#################################################################
+# SERVICES
+#################################################################
+
+service-postgres:
 	docker-compose up -d postgres
+
+#################################################################
+# TOOLS
+#################################################################
 
 ps:
 	docker-compose ps
@@ -20,15 +44,6 @@ exec:
 
 exec-root:
 	docker-compose exec workspace zsh
-
-build-ibolit:
-	docker-compose build workspace nginx php-fpm mariadb redis mongo nats
-
-build-ibolit-api:
-	docker-compose build workspace nginx php-fpm mariadb redis
-
-build-ibolit-chat-service:
-	docker-compose build mongo nats
 
 build-workspace:
 	docker-compose build workspace
