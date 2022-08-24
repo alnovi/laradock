@@ -20,7 +20,11 @@ ibolit-build-customizer:
 # ALNOVI
 #################################################################
 
+alnovi-swagger:
+	docker-compose up -d swagger-editor swagger-ui
 
+alnovi-build-swagger:
+	docker-compose build swagger-editor swagger-ui
 
 #################################################################
 # SERVICES
