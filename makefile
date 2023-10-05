@@ -29,6 +29,9 @@ alnovi-build-swagger:
 alnovi-go-link:
 	docker-compose up -d workspace mongo
 
+alnovi-sso:
+	docker-compose up -d workspace postgres
+
 #################################################################
 # SERVICES
 #################################################################
