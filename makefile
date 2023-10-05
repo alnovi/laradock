@@ -5,7 +5,7 @@
 #################################################################
 
 ibolit-api:
-	docker-compose up -d workspace nginx php-fpm mariadb redis
+	docker-compose up -d workspace nginx php-fpm mariadb redis mongo
 
 ibolit-build-api:
 	docker-compose build workspace nginx php-fpm mariadb redis
@@ -26,12 +26,21 @@ alnovi-swagger:
 alnovi-build-swagger:
 	docker-compose build swagger-editor swagger-ui
 
+alnovi-go-link:
+	docker-compose up -d workspace mongo
+
 #################################################################
 # SERVICES
 #################################################################
 
+service-mariadb:
+	docker-compose up -d mariadb
+
 service-postgres:
 	docker-compose up -d postgres
+
+service-mongo:
+	docker-compose up -d mongo
 
 #################################################################
 # TOOLS
