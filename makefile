@@ -1,6 +1,13 @@
 .SILENT:
 
 #################################################################
+# WB
+#################################################################
+
+pvz-audit:
+	docker-compose up -d workspace postgres-postgis
+
+#################################################################
 # IBOLIT
 #################################################################
 
@@ -74,4 +81,4 @@ prune-all:
 	docker network prune --force
 	docker system df
 
-.DEFAULT_GOAL := ibolit-api
+.DEFAULT_GOAL := pvz-audit
