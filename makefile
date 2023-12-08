@@ -5,14 +5,14 @@
 #################################################################
 
 pvz-audit:
-	docker-compose up -d workspace postgres-postgis
+	docker-compose up -d workspace postgres-postgis nats
 
 #################################################################
 # IBOLIT
 #################################################################
 
 ibolit-api:
-	docker-compose up -d workspace nginx php-fpm mariadb redis mongo
+	docker-compose up -d workspace nginx php-fpm mariadb redis
 
 ibolit-build-api:
 	docker-compose build workspace nginx php-fpm mariadb redis
