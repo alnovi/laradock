@@ -5,7 +5,7 @@
 #################################################################
 
 pvz-audit:
-	docker-compose up -d workspace postgres-postgis nats
+	docker-compose up -d workspace postgres-postgis
 
 #################################################################
 # IBOLIT
