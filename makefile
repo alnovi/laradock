@@ -4,12 +4,18 @@
 # WB
 #################################################################
 
-pvz-audit:
-	docker compose up -d workspace postgres-postgis
+wb-audit:
+	docker compose up -d workspace postgres-postgis elasticsearch kibana
+
+wb-audit-pgadmin:
+	docker compose up -d workspace postgres-postgis pgadmin elasticsearch kibana
 
 #################################################################
 # IBOLIT
 #################################################################
+
+ibolit-go:
+	docker compose up -d workspace postgres
 
 ibolit-api:
 	docker compose up -d workspace nginx php-fpm mariadb redis
@@ -72,4 +78,4 @@ prune-all:
 	docker network prune --force
 	docker system df
 
-.DEFAULT_GOAL := pvz-audit
+.DEFAULT_GOAL := wb-audit

@@ -1049,7 +1049,7 @@ services:
       volumes:
         - ${DATA_PATH_HOST}/pgadmin:/var/lib/pgadmin
       depends_on:
-        - postgres
+        - postgres-postgis
       networks:
         - frontend
         - backend
